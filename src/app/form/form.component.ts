@@ -9,23 +9,23 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class FormComponent implements OnInit {
   rfContact: FormGroup;
 
-  onSubmit(form) {
-    console.log(form);
+  onSubmit(rfContact) {
+    console.log(rfContact);
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
-  ngOnInit() {this.rfContact = this.fb.group({
-    contactName: ['', [Validators.required, Validators.minLength(6)]],
-    email:  ['', [Validators.required, Validators.minLength(6), Validators.email]],
-    age: ['', [Validators.required, Validators.min(18)]],
-    social: this.fb.group({
-      facebook: ['', [Validators.required, Validators.minLength(6)]],
+  ngOnInit() {
+    this.rfContact = this.fb.group({
+      contactName: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.minLength(6), Validators.email]],
+      age: ['', [Validators.required, Validators.min(18)]],
+      facebook: '',
       twitter: '',
-      website: ''
-    }),
-    tel:   ['', [Validators.required, Validators.pattern(/((09)+([0-9]{8})\b)/g)]]
-  });
+      website: '',
+      tel: ['', [Validators.required, Validators.pattern(/((09|03|07|08|05)+([0-9]{8}))/g)]]
+    });
   }
 
 }

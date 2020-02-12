@@ -1,5 +1,5 @@
 <h2 class="text-center">Angular Form works!</h2>
-<form novalidate (submit)="onSubmit(form.value)" #form="ngForm" [formGroup]="rfContact" class="row justify-content-md-center">
+<form novalidate (submit)="onSubmit(rfContact.value)"  [formGroup]="rfContact" class="row justify-content-md-center">
   <div class="col-md-8">
     <div class="form-group row">
       <label for="example-text-input" class="col-md-2 col-form-label">Name:</label>
@@ -37,10 +37,10 @@
     <div class="form-group row">
       <label for="example-tel-input" class="col-md-2 col-form-label">Tel:</label>
       <div class="col-md-10">
-        <input class="form-control" type="number" id="example-tel-input"
+        <input class="form-control" type="text" id="example-tel-input"
                formControlName="tel">
         <div class="alert alert-danger" role="alert" *ngIf="rfContact.get('tel').invalid && rfContact.get('tel').touched">
-          <span *ngIf="rfContact.get('tel').hasError('required')">Phone is required</span>
+          <span  *ngIf="rfContact.get('tel').hasError('required')">Phone is required</span>
           <span *ngIf="rfContact.get('tel').hasError('pattern')">Phone must start with 09 followed by 9 or 10 digits.</span>
         </div>
       </div>
@@ -48,19 +48,19 @@
     <div class="form-group row">
       <label for="example-url-fb" class="col-md-2 col-form-label">Facebook:</label>
       <div class="col-md-10">
-        <input class="form-control" ngModel name="facebook" type="url" id="example-url-fb">
+        <input class="form-control" formControlName="facebook" type="url" id="example-url-fb">
       </div>
     </div>
     <div class="form-group row">
       <label for="example-url-twt" class="col-md-2 col-form-label">Twitter:</label>
       <div class="col-md-10">
-        <input class="form-control" ngModel name="twitter" type="url" id="example-url-twt">
+        <input class="form-control" formControlName="twitter" type="url" id="example-url-twt">
       </div>
     </div>
     <div class="form-group row">
       <label for="example-url-web" class="col-md-2 col-form-label">Website:</label>
       <div class="col-md-10">
-        <input class="form-control" ngModel name="website" type="url" id="example-url-web">
+        <input class="form-control"  formControlName="website" type="url" id="example-url-web">
       </div>
     </div>
     <div class="form-group row">
@@ -73,7 +73,7 @@
 
 <p>Form Value Test</p>
 <pre>
-  {{ form.value | json }}
+  {{ rfContact.value | json }}
 </pre>
 
 
