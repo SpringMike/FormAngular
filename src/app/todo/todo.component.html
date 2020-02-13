@@ -1,0 +1,13 @@
+<p>todo works!</p>
+
+<div>
+  <label>
+    <input type="text" (keyup.enter)="onInput($event)">
+  </label>
+  <button (click)="onClick()">Button</button>
+</div>
+<ul>
+  <li *ngFor="let i of messages">
+    {{ i }}
+  </li>
+</ul>

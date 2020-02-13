@@ -6,12 +6,14 @@ import { FormComponent } from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    LoginComponent
+    LoginComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
